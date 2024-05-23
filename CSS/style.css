@@ -1,0 +1,14 @@
+header{
+    position: relative;
+    width: 100%;
+}
+
+#lognavbar {
+    display: flex;
+    flex-direction: row;
+}
+
+Form{
+    display: flex;
+    flex-direction: column;
+}

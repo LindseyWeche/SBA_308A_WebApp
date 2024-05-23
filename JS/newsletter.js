@@ -9,14 +9,14 @@ inputEmail.name = 'userEmail';
 inputEmail.placeholder = 'Enter Your Email';
 
 const inputPassword = document.createElement("input");
-inputName.type = 'text';
-inputName.name = 'password';
-inputName.placeholder = 'Enter your Password';
+inputPassword.type = 'text';
+inputPassword.name = 'password';
+inputPassword.placeholder = 'Enter your Password';
 
 const inputCheckPassword = document.createElement("input");
-inputName.type = 'text';
-inputName.name = 'Checkpassword';
-inputName.placeholder = 'Re-Enter your Password';
+inputCheckPassword.type = 'text';
+inputCheckPassword.name = 'Checkpassword';
+inputCheckPassword.placeholder = 'Re-Enter your Password';
 
 // submit button
 var buttonSubmit = document.createElement("input");
