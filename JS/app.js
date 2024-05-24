@@ -1,3 +1,5 @@
+import { notEmpty, validEmail} from "./validateinfo";
+
 // Create Form for Newsletter
 const Form = document.createElement('Form');
 
@@ -19,7 +21,7 @@ inputCheckPassword.name = 'Checkpassword';
 inputCheckPassword.placeholder = 'Re-Enter your Password';
 
 // submit button
-var buttonSubmit = document.createElement("input");
+const buttonSubmit = document.createElement("input");
 buttonSubmit.type = 'submit';
 buttonSubmit.value = 'Submit';
 
