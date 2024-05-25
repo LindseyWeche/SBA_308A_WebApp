@@ -51,3 +51,34 @@ function showSlides() {
   slides[slideIndex-1].style.display = "block";
   setTimeout(showSlides, 5000); // Change image every 5seconds
 }
+
+
+document.getElementById('comment').addEventListener('submit', function(e) {
+            e.preventDefault(); // Prevent default form submission
+
+            // Get the comment data from the form
+            const comment = document.getElementById('comment').value;
+
+            // Make a POST request to the server
+            fetch('/api/add_comment', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ comment: comment })
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Failed to add comment');
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log('Comment added successfully:', data);
+                // Optionally, update the UI to show the new comment
+            })
+            .catch(error => {
+                console.error('Error adding comment:', error);
+                // Optionally, display an error message to the user
+            });
+        });
