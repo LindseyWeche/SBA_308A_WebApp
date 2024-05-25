@@ -1,12 +1,37 @@
-header{
+/* header{
     position: relative;
     width: 100%;
-}
+} */
 
-#lognavbar {
-    display: flex;
-    flex-direction: row;
-}
+/* Header */
+/* Logo & Name */
+ .logo {
+    width: 70px;
+    height: 70px;
+    display: float;
+    float: center;
+    
+ }
+
+ #logoContainer{
+
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ background-image: url("https://obsidi.com/wp-content/uploads/2021/09/blackwomansmiling-1.jpg");
+ background-size:100% ;
+ background-repeat: no-repeat;
+ height: 200px;
+ }
+ h1{
+    justify-self: center;
+    color: rgb(212, 182, 12);
+ }
+ 
+ /* Nav */
+
+ /* End of Header */
+
 
 Form{
     display: flex;

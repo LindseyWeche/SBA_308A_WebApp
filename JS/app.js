@@ -1,5 +1,6 @@
 // import { notEmpty, validEmail} from "./validateinfo";
 
+const formContainer = document.getElementById("container")
 // Create Form for Newsletter
 const Form = document.createElement('Form');
 
@@ -32,7 +33,7 @@ Form.appendChild(inputCheckPassword);
 Form.appendChild(buttonSubmit);
 
 // Append Form to the DOM
-document.body.appendChild(Form);
+formContainer.appendChild(Form)
 
 
 
