@@ -59,7 +59,7 @@ document.getElementById('comment').addEventListener('submit', function(e) {
             // Get the comment data from the form
             const comment = document.getElementById('comment').value;
 
-            // Make a POST request to the server
+            // Make a POST request to the server for the comment area
             fetch('/api/add_comment', {
                 method: 'POST',
                 headers: {
@@ -82,3 +82,48 @@ document.getElementById('comment').addEventListener('submit', function(e) {
                 // Optionally, display an error message to the user
             });
         });
+
+
+        document.getElementById('searchButton').addEventListener('click', function() {
+            const searchBar = document.getElementById('searchInput').value;
+            search(searchBar);
+        });
+        
+        
+// async function search(searchBar) {
+//             const apiKey = 'YOUR_API_KEY_HERE';  // Replace with your actual API key
+//             const apiUrl = `https://gnews.io/api/v4/search?q=example&lang=en&country=us&max=10&apikey=11f174e6942c85eb0f637bc5330346b5'
+        
+//             try {
+//                 const response = await fetch(apiUrl);
+//                 if (!response.ok) {
+//                     throw new Error('Network response was not ok ' + response.statusText);
+//                 }
+//                 const data = await response.json();
+//                 displayResults(data);
+//             } catch (error) {
+//                 console.error('There was a problem with the fetch operation:', error);
+//  }
+// }
+
+async function search() {
+    const searchBar = document.getElementById('searchInput').value;
+    try {
+        const response = await fetch(`https://gnews.io/api/v4/search?q=example&lang=en&country=us&max=10&apikey=11f174e6942c85eb0f637bc5330346b5${encodeURIComponent(searchBar)}`);
+        const results = await response.json();
+        displayResults(results);
+    } catch (error) {
+        console.error('Error fetching search results:', error);
+    }
+}
+
+function displayResults(results) {
+    const resultsDiv = document.getElementById('results');
+    resultsDiv.innerHTML = '';
+    results.forEach(result => {
+        const div = document.createElement('div');
+        div.textContent = result;
+        resultsDiv.appendChild(div);
+    });
+}
+  

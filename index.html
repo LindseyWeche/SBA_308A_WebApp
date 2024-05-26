@@ -14,7 +14,7 @@
    
 </head>
 <body>
-// Header
+    <!-- Create the Header -->
    <div id="header">
      <div id="logoContainer">
         <img class="logo" src="Images/logo-removebg-preview.png" alt="logo">
@@ -34,11 +34,13 @@
                 </li>
             </ul>
      </div>
-     <div id="search">
-            <input type="text" id="searchInput" placeholder="Search for blog posts..." />
-            <button id="searchButton">Search</button>
-     </div>
+    
    </div> 
+   <div id="search">
+    <input type="text" id="searchInput" placeholder="Search an Article" />
+    <button onclick="search()" id="searchButton">Search</button>
+    <div id="results"></div>
+  </div>
 
 
   <div id="slideInfo">
