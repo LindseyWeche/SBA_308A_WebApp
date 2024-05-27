@@ -1,5 +1,5 @@
-import { notEmpty, validEmail,validPassword,passwordMatch} from "./validateinfo";
-import { searchClick } from "./search";
+// import { notEmpty, validEmail,validPassword,passwordMatch} from "./validateinfo";
+// import { searchClick } from "./search";
 
 const formContainer = document.getElementById("container")
 // Create Form for Newsletter
@@ -89,12 +89,12 @@ function valid (e) {
         console.log('Form is invalid! Showing errors...');
     }
 
-    Form.addEventListener('submit', valid);
+
 }
 
 
 // Form.addEventListener('submit', valid);
-
+Form.addEventListener('submit', valid);
 
 
 
@@ -134,13 +134,7 @@ document.getElementById('searchButton').addEventListener('click', searchClick)
             const searchBar = document.getElementById('searchInput').value;
             search(searchBar);
         
-// document.addEventListener('DOMContentLoaded', () => {
-//     const searchButton = document.querySelector('#searchButton');
-//     if (searchButton) {
-//         searchButton.addEventListener('click', searchClick);
-//     }
-   
-// });     
+
 
 async function search() {
     const searchBar = document.getElementById('searchInput').value;
