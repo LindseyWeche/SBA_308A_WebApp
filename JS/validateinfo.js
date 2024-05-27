@@ -17,3 +17,8 @@ export function validPassword (password){
     return""
 }
 
+
+export function passwordMatch(password, checkPassword) {
+    return password === checkPassword;
+}
+

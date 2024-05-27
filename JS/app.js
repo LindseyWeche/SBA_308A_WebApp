@@ -1,4 +1,5 @@
-// import { notEmpty, validEmail,validPassword} from "./validateinfo";
+import { notEmpty, validEmail,validPassword,passwordMatch} from "./validateinfo";
+import { showSlides } from "./slide";
 
 const formContainer = document.getElementById("container")
 // Create Form for Newsletter
@@ -18,7 +19,7 @@ inputPassword.placeholder = 'Enter your Password';
 
 const inputCheckPassword = document.createElement("input");
 inputCheckPassword.type = 'text';
-inputCheckPassword.name = 'Checkpassword';
+inputCheckPassword.name = 'checkPassword';
 inputCheckPassword.placeholder = 'Re-Enter your Password';
 
 // submit button
@@ -37,29 +38,71 @@ formContainer.appendChild(Form)
 
 
 
-let slideIndex = 0;
-showSlides();
+// let slideIndex = 0;
+// showSlides();
 
-function showSlides() {
-  let i;
-  let slides = document.getElementsByClassName("mySlides");
-  for (i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";
-  }
-  slideIndex++;
-  if (slideIndex > slides.length) {slideIndex = 1}
-  slides[slideIndex-1].style.display = "block";
-  setTimeout(showSlides, 5000); // Change image every 5seconds
+// function showSlides() {
+//   let i;
+//   let slides = document.getElementsByClassName("mySlides");
+//   for (i = 0; i < slides.length; i++) {
+//     slides[i].style.display = "none";
+//   }
+//   slideIndex++;
+//   if (slideIndex > slides.length) {slideIndex = 1}
+//   slides[slideIndex-1].style.display = "block";
+//   setTimeout(showSlides, 5000); // Change image every 5seconds
+// }
+
+
+function valid (e) {
+    e.preventDefault();
+    let isValid = true;
+    errorMessage.innerHTML = ''; 
+
+    if (!notEmpty(input.value)) {
+        isValid = false;
+        errorMessage.innerHTML += '<p>Field has to be filled.</p>';
+    }
+
+    if (!validEmail(inputEmail.value)) {
+        isValid = false;
+        errorMessage.innerHTML += '<p>Invalid email address.</p>';
+    }
+
+   
+    if (!validPassword(inputPassword.value)) {
+        isValid = false;
+        errorMessage.innerHTML += '<p>Password must be at least 6 characters long and include a number.</p>';
+    }
+   
+    if (!passwordMatch(inputPassword.value, inputCheckPassword.value)) {
+        isValid = false;
+        errorMessage.innerHTML += '<p>Passwords do not match.</p>';
+    }
+
+    if (isValid) {
+        // Submit the form or perform further actions
+        console.log('Form is valid! Submitting...');
+        Form.submit();
+    } else {
+        console.log('Form is invalid! Showing errors...');
+    }
 }
 
+// Bind the validation function to the form submit event
+Form.addEventListener('submit', valid);
 
+
+
+
+// Comment Area with Post
 document.getElementById('comment').addEventListener('submit', function(e) {
             e.preventDefault(); // Prevent default form submission
 
             // Get the comment data from the form
             const comment = document.getElementById('comment').value;
 
-            // Make a POST request to the server for the comment area
+            //  POST request to the server for the comment area
             fetch('https://gnews.io/api/v4/search?q=example&lang=en&country=us&max=10&apikey=11f174e6942c85eb0f637bc5330346b5', {
                 method: 'POST',
                 headers: {
@@ -75,16 +118,16 @@ document.getElementById('comment').addEventListener('submit', function(e) {
             })
             .then(data => {
                 console.log('Comment added successfully:', data);
-                // Optionally, update the UI to show the new comment
+               
             })
             .catch(error => {
                 console.error('Error adding comment:', error);
-                // Optionally, display an error message to the user
+               
             });
         });
 
-
-        document.getElementById('searchButton').addEventListener('click', function() {
+//  Event on the search Button
+document.getElementById('searchButton').addEventListener('click', function() {
             const searchBar = document.getElementById('searchInput').value;
             search(searchBar);
         });
