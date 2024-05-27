@@ -1,5 +1,5 @@
-// import { notEmpty, validEmail,validPassword,passwordMatch} from "./validateinfo";
-// import { searchClick } from "./search";
+import { notEmpty, validEmail,validPassword,passwordMatch} from "./validateinfo";
+import { searchClick } from "./search";
 
 const formContainer = document.getElementById("container")
 // Create Form for Newsletter
@@ -37,7 +37,7 @@ Form.appendChild(buttonSubmit);
 formContainer.appendChild(Form)
 
 
-
+// Slide function for the carousel
 let slideIndex = 0;
 showSlides();
 
@@ -92,8 +92,6 @@ function valid (e) {
 
 }
 
-
-// Form.addEventListener('submit', valid);
 Form.addEventListener('submit', valid);
 
 
