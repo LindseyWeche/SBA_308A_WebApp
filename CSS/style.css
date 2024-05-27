@@ -15,7 +15,7 @@ body {
     background-image: url("https://obsidi.com/wp-content/uploads/2021/09/blackwomansmiling-1.jpg");
     background-size:120% ;
     background-repeat: no-repeat;
-    height: 250px;
+    height: 300px;
     margin-bottom: 10px;
    
 }
@@ -103,11 +103,12 @@ body {
 #search {
     float: right;
     margin: 7px;
+   
 }
 
 #search button {
-    background-color: #0074D9;
-    color: #f2f2f2;
+    background-color: rgb(212, 182, 12);
+    color: black;
     float: right;
     padding: 5px 10px;
     margin-right: 16px;
@@ -124,6 +125,7 @@ body {
     flex-direction: row;
     margin-top: 20px;
     margin-bottom: 50px;
+    
 } 
 
 .slideshow-container{
@@ -135,11 +137,20 @@ body {
 
     flex-direction: row;
     flex-grow: 1;
+    text-align: right;
+}
+
+#buttonInfo{
+    margin-top: 20px;
+    background-color:rgb(212, 182, 12); 
+    box-shadow: #333;
+    
 }
 
 Form{
     display: flex;
     flex-direction: column;
+    margin-bottom: 20px;
     
 }
 
@@ -228,4 +239,18 @@ Form{
   @keyframes fade {
     from {opacity: .4}
     to {opacity: 1}
+  }
+
+  /* footer */
+  .shadowed-hr{
+    border: none; /* Remove default border */
+      height: 2px; /* Set the height of the line */
+      background-color: #333; /* Set the color of the line */
+      box-shadow: 0 4px 6px -4px #000; /* Add shadow for a 3D effect */
+      margin: 20px 0; /* Add some vertical spacing */
+}
+
+  #logo1{
+    width: 50px;
+    height: 50px;
   }

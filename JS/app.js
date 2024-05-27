@@ -1,4 +1,4 @@
-// import { notEmpty, validEmail} from "./validateinfo";
+// import { notEmpty, validEmail,validPassword} from "./validateinfo";
 
 const formContainer = document.getElementById("container")
 // Create Form for Newsletter
@@ -60,7 +60,7 @@ document.getElementById('comment').addEventListener('submit', function(e) {
             const comment = document.getElementById('comment').value;
 
             // Make a POST request to the server for the comment area
-            fetch('/api/add_comment', {
+            fetch('https://gnews.io/api/v4/search?q=example&lang=en&country=us&max=10&apikey=11f174e6942c85eb0f637bc5330346b5', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

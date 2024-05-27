@@ -34,13 +34,16 @@
                 </li>
             </ul>
      </div>
+
+     <div id="search" class ="search-expand-lg">
+        <input type="text" id="searchInput" placeholder="Search an Article" />
+        <button onclick="search()" id="searchButton">Search</button>
+        <div id="results"></div>
+      </div>
+
+ </div>
     
-   </div> 
-   <div id="search">
-    <input type="text" id="searchInput" placeholder="Search an Article" />
-    <button onclick="search()" id="searchButton">Search</button>
-    <div id="results"></div>
-  </div>
+
 
 
   <div id="slideInfo">
@@ -69,7 +72,7 @@
             <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius aliquam quia maiores dolores sed tempora. Sit repudiandae expedita tenetur, alias facilis aliquam sunt, velit aperiam quis cupiditate non veritatis quaerat.
             </p>
-            <button> more...</button>
+            <button type="submit" id="buttonInfo"> More</button>
             <br>
       </div>
   </div>
@@ -88,12 +91,13 @@
     <button type="submit">Comment</button>
   </form>
  
+  <hr class="shadowed-hr">
 
     <footer id="footer">
         <div class="row"></div>
         <div class="col"></div>
         <a href="index.html">
-         <img src="Images/logo-removebg-preview.png" alt="Logo">
+         <img id="logo1" src="Images/logo-removebg-preview.png" alt="Logo">
         </a>
         <p>
             <a href="mailto:lindseyweche01@gmail.com">Email</a><br>
