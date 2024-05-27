@@ -90,21 +90,6 @@ document.getElementById('comment').addEventListener('submit', function(e) {
         });
         
         
-// async function search(searchBar) {
-//             const apiKey = 'YOUR_API_KEY_HERE';  // Replace with your actual API key
-//             const apiUrl = `https://gnews.io/api/v4/search?q=example&lang=en&country=us&max=10&apikey=11f174e6942c85eb0f637bc5330346b5'
-        
-//             try {
-//                 const response = await fetch(apiUrl);
-//                 if (!response.ok) {
-//                     throw new Error('Network response was not ok ' + response.statusText);
-//                 }
-//                 const data = await response.json();
-//                 displayResults(data);
-//             } catch (error) {
-//                 console.error('There was a problem with the fetch operation:', error);
-//  }
-// }
 
 async function search() {
     const searchBar = document.getElementById('searchInput').value;
