@@ -1,5 +1,5 @@
 import { notEmpty, validEmail,validPassword,passwordMatch} from "./validateinfo";
-import { showSlides } from "./slide";
+import { searchClick } from "./search";
 
 const formContainer = document.getElementById("container")
 // Create Form for Newsletter
@@ -38,20 +38,20 @@ formContainer.appendChild(Form)
 
 
 
-// let slideIndex = 0;
-// showSlides();
+let slideIndex = 0;
+showSlides();
 
-// function showSlides() {
-//   let i;
-//   let slides = document.getElementsByClassName("mySlides");
-//   for (i = 0; i < slides.length; i++) {
-//     slides[i].style.display = "none";
-//   }
-//   slideIndex++;
-//   if (slideIndex > slides.length) {slideIndex = 1}
-//   slides[slideIndex-1].style.display = "block";
-//   setTimeout(showSlides, 5000); // Change image every 5seconds
-// }
+function showSlides() {
+  let i;
+  let slides = document.getElementsByClassName("mySlides");
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  slideIndex++;
+  if (slideIndex > slides.length) {slideIndex = 1}
+  slides[slideIndex-1].style.display = "block";
+  setTimeout(showSlides, 5000); // Change image every 5seconds
+}
 
 
 function valid (e) {
@@ -81,16 +81,19 @@ function valid (e) {
     }
 
     if (isValid) {
-        // Submit the form or perform further actions
+        // Submit the form 
         console.log('Form is valid! Submitting...');
         Form.submit();
+        // Other action
     } else {
         console.log('Form is invalid! Showing errors...');
     }
+
+    Form.addEventListener('submit', valid);
 }
 
-// Bind the validation function to the form submit event
-Form.addEventListener('submit', valid);
+
+// Form.addEventListener('submit', valid);
 
 
 
@@ -127,12 +130,17 @@ document.getElementById('comment').addEventListener('submit', function(e) {
         });
 
 //  Event on the search Button
-document.getElementById('searchButton').addEventListener('click', function() {
+document.getElementById('searchButton').addEventListener('click', searchClick)
             const searchBar = document.getElementById('searchInput').value;
             search(searchBar);
-        });
         
-        
+// document.addEventListener('DOMContentLoaded', () => {
+//     const searchButton = document.querySelector('#searchButton');
+//     if (searchButton) {
+//         searchButton.addEventListener('click', searchClick);
+//     }
+   
+// });     
 
 async function search() {
     const searchBar = document.getElementById('searchInput').value;
@@ -143,6 +151,7 @@ async function search() {
     } catch (error) {
         console.error('Error fetching search results:', error);
     }
+
 }
 
 function displayResults(results) {
@@ -153,5 +162,6 @@ function displayResults(results) {
         div.textContent = result;
         resultsDiv.appendChild(div);
     });
+    
 }
   
